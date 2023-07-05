@@ -12,7 +12,7 @@
   </parent>
 
   <groupId>ru.skypro</groupId>
-  <artifactId>ads</artifactId>
+  <artifactId>TraidBrainCell</artifactId>
   <version>0.0.1-SNAPSHOT</version
   >
   <name>Ads application</name>
