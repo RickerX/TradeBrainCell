@@ -2,22 +2,23 @@ package ru.skypro.homework.service.impl;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
-import ru.skypro.homework.dto.Register;
+import ru.skypro.homework.dto.Role;
 import ru.skypro.homework.service.AuthService;
 
 @Service
 public class AuthServiceImpl implements AuthService {
 
     private final UserDetailsManager manager;
+
     private final PasswordEncoder encoder;
 
-    public AuthServiceImpl(UserDetailsManager manager,
-                           PasswordEncoder passwordEncoder) {
+    public AuthServiceImpl(UserDetailsManager manager) {
         this.manager = manager;
-        this.encoder = passwordEncoder;
+        this.encoder = new BCryptPasswordEncoder();
     }
 
     @Override
@@ -26,22 +27,23 @@ public class AuthServiceImpl implements AuthService {
             return false;
         }
         UserDetails userDetails = manager.loadUserByUsername(userName);
-        return encoder.matches(password, userDetails.getPassword());
+        String encryptedPassword = userDetails.getPassword();
+        String encryptedPasswordWithoutEncryptionType = encryptedPassword.substring(8);
+        return encoder.matches(password, encryptedPasswordWithoutEncryptionType);
     }
 
     @Override
-    public boolean register(Register register) {
-        if (manager.userExists(register.getUsername())) {
+    public boolean register(String userName, String password, Role role) {
+        if (manager.userExists(userName)) {
             return false;
         }
         manager.createUser(
-                User.builder()
-                        .passwordEncoder(this.encoder::encode)
-                        .password(register.getPassword())
-                        .username(register.getUsername())
-                        .roles(register.getRole().name())
-                        .build());
+                User.withDefaultPasswordEncoder()
+                        .password(password)
+                        .username(userName)
+                        .roles(role.name())
+                        .build()
+        );
         return true;
     }
-
 }

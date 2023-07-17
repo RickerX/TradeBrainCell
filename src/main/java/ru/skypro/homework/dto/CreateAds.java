@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class CreateAds {
+
     private String image;
     private Integer price;
     private String description;

@@ -1,8 +1,8 @@
 package ru.skypro.homework.service.impl;
 
 import org.springframework.stereotype.Service;
-import ru.skypro.homework.dto.Ads;
 import ru.skypro.homework.dto.CreateAds;
+import ru.skypro.homework.dto.Ads;
 import ru.skypro.homework.dto.FullAds;
 import ru.skypro.homework.service.AdsService;
 
@@ -10,8 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
 @Service
 public class AdsServiceImpl implements AdsService {
+
     private final Map<Integer, FullAds> adsMap = new HashMap<>();
 
     @Override
@@ -57,4 +59,5 @@ public class AdsServiceImpl implements AdsService {
         fullAds.setPk(ads.getPk());
         return Ads.fromFull(fullAds);
     }
+
 }
