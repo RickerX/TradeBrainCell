@@ -9,11 +9,6 @@ import ru.skypro.homework.model.UserModel;
 import java.util.Optional;
 @Component
 public class UserMapper {
-    /**
-     * Mapping user model to user dto
-     * @param userModel original model
-     * @return resulting user dto
-     */
     public User mapToUser(UserModel userModel) {
         User user = new User();
         user.setId(userModel.getId());
@@ -27,12 +22,6 @@ public class UserMapper {
         return user;
     }
 
-    /**
-     * Mapping user  to user model
-     * @param user original user
-     * @param userModel user model template
-     * @return resulting user model
-     */
     public UserModel mapUserToUserModel(User user, UserModel userModel) {
         userModel.setId(user.getId());
         userModel.setUsername(user.getEmail());
@@ -42,12 +31,6 @@ public class UserMapper {
         return userModel;
     }
 
-    /**
-     * Mapping register to user model
-     * @param register original user
-     * @param userModel user model template
-     * @return resulting user model
-     */
     public UserModel mapRegisterReqToUserModel(Register register, UserModel userModel) {
         userModel.setUsername(register.getUsername());
         userModel.setPassword(register.getPassword());

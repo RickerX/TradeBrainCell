@@ -69,9 +69,6 @@ public class CommentServiceImpl implements CommentService {
         commentModel.setUser(userModel);
         commentModel.setAds(adsModelOptional.get());
 
-/*        Example<CommentModel> c = Example.of(commentModel);
-        boolean exists = commentRepository.exists(c);
-        if (!exists) {*/
 
         if (null == findComment(commentModel)) {
             return commentMapper.mapCommentModelToComment(

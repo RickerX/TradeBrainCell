@@ -20,7 +20,6 @@ public class ImageModel {
     @Lob
     @Type(type = "binary")
     private byte[] image;
-    //private Long size;
     private String mediaType;
     public String getPath() {
         return "/img" + "/" + this.getId();

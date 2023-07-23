@@ -10,22 +10,10 @@ import ru.skypro.homework.model.ImageModel;
 import java.util.Optional;
 @Component
 public class AdsMapper {
-    //AdsMapper INSTANCE = Mappers.getMapper( AdsMapper.class );
 
-    /*@Mapping(source = "id", target = "pk")
-    @Mapping(target = "author", expression = "java(this.getUser().getId())")
-    Ads adsModelToAds(AdsModel adsModel);*/
-
-    /**
-     * Mapping ads model object to ads
-     * @param adsModel initial object of type AdsModel
-     * @return resulting object of type Ads
-     */
     public Ads adsModelToAds(AdsModel adsModel) {
         Ads ads = new Ads();
         ads.setAuthor(adsModel.getUser().getId());
-        //ads.setImage(null);
-        //adDto.setImage(adModel.getImage().getPath());
         ads.setImage(Optional.ofNullable(adsModel.getImage())
                 .map(ImageModel::getPath)
                 .orElse(null));
@@ -36,11 +24,6 @@ public class AdsMapper {
         return ads;
     }
 
-    /**
-     * Mapping ads model object to full ads
-     * @param adsModel initial object of type AdsModel
-     * @return resulting object of type FullAds
-     */
     public FullAds adsModelToFullAds(AdsModel adsModel) {
         if (adsModel == null) {
             return null;
@@ -61,14 +44,9 @@ public class AdsMapper {
         return fullAds;
     }
 
-    /**
-     * Mapping ads to ads model object
-     * @param createAds initial object of type Ads
-     * @return resulting object of type AdsModel
-     */
     public AdsModel CreateAdsToAdsModel(CreateAds createAds) {
         if (createAds == null) {
-            throw new RuntimeException("Неясно что делать, если createAds == null");
+            throw new RuntimeException("Не получилось!");
         }
         AdsModel adsModel = new AdsModel();
         adsModel.setDescription(createAds.getDescription());
@@ -77,12 +55,6 @@ public class AdsMapper {
         return adsModel;
     }
 
-    /**
-     * Mapping ads to ads model object
-     * @param adsModel ad model for edited
-     * @param createAds initial object of type AdDto
-     * @return resulting object of type AdModel
-     */
     public AdsModel CreateAdsToAdsModel(AdsModel adsModel, CreateAds createAds){
         adsModel.setDescription(isNull(createAds.getDescription()) ? adsModel.getDescription() : createAds.getDescription());
         adsModel.setPrice(isNull(createAds.getPrice()) ? adsModel.getPrice() : createAds.getPrice());
@@ -90,11 +62,6 @@ public class AdsMapper {
         return adsModel;
     }
 
-    /**
-     * Checked object for null
-     * @param o checked object
-     * @return true if the object being checked is null
-     */
     private Boolean isNull(Object o) {
         return Optional.ofNullable(o).isEmpty();
     }

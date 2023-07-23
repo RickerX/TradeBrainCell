@@ -7,6 +7,4 @@ import java.util.List;
 public class ResponseWrapper {
     public int count;
     public List<Ads> results;
-//    private Integer count;
-//    private List<T> results;
 }

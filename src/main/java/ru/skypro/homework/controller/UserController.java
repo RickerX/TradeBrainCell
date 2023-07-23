@@ -155,30 +155,4 @@ public class UserController {
         //return ResponseEntity.ok(userDto);
         return ResponseEntity.ok().build();
     }
-//    @PostMapping
-//    public CreateUser addUser(@RequestBody CreateUser user) {
-//        return new CreateUser();
-//    }
-//
-//    @GetMapping("/me")
-//    public ResponseWrapper<User> getUsers() {
-//        return new ResponseWrapper<>();
-//    }
-//
-//    @PatchMapping("/me")
-//    public User updateUser(@RequestBody User user) {
-//        return new User();
-//    }
-//
-//    @GetMapping("/{id}")
-//    public User getUser(@PathVariable("id") Integer id) {
-//        return new User();
-//    }
-//
-//    @PostMapping("/set_password")
-//    public NewPassword setPassword(@RequestBody NewPassword newPassword) {
-//        return new NewPassword();
-//    }
-//
-
 }
