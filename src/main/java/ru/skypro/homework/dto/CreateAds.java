@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class CreateAds {
-    private String image;
-    private Integer price;
-    private String description;
-    private Integer pk;
-    private String title;
+    private String description; // описание объявления
+    private Integer price;          // цена объявления
+    private String title;       // заголовок объявления
+//    private String image;
+//    private Integer pk;
 }

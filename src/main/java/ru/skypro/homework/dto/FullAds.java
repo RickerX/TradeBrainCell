@@ -6,17 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+//@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class FullAds {
-    private String authorFirstName;
-    private String image;
-    private String authorLastName;
-    private String phone;
-    private String email;
-    private Integer price;
-    private Integer pk;
-    private String title;
-    private String description;
+    private long pk;                // id объявления
+    private String authorFirstName; // имя автора объявления
+    private String authorLastName;  // фамилия автора объявления
+    private String description;     // описание объявления
+    private String email;           // логин автора объявления
+    private String image;           // ссылка на картинку объявления
+    private String phone;           // телефон автора объявления
+    private int price;              // цена объявления
+    private String title;           // заголовок объявления
 }
