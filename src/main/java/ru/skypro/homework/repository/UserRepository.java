@@ -1,11 +1,13 @@
 package ru.skypro.homework.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.skypro.homework.dto.User;
-import ru.skypro.homework.model.UserModel;
+import org.springframework.stereotype.Repository;
+import ru.skypro.homework.entity.UserEntity;
 
 import java.util.Optional;
+@Repository
+public interface UserRepository extends JpaRepository<UserEntity,Integer> {
+    Optional<UserEntity> findByUsername(String username);
 
-public interface UserRepository extends JpaRepository<UserModel,Long> {
-    Optional<UserModel> findUserByUsername(String username);
+    void deleteByUsername(String username);
 }

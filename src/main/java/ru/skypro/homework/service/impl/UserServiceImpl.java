@@ -1,76 +1,58 @@
 package ru.skypro.homework.service.impl;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.skypro.homework.dto.NewPassword;
-import ru.skypro.homework.dto.Register;
-import ru.skypro.homework.dto.Role;
+import org.springframework.web.multipart.MultipartFile;
 import ru.skypro.homework.dto.User;
+import ru.skypro.homework.entity.ImageEntity;
+import ru.skypro.homework.entity.UserEntity;
+import ru.skypro.homework.exception.FindNoEntityException;
 import ru.skypro.homework.mapper.UserMapper;
-import ru.skypro.homework.model.ImageModel;
-import ru.skypro.homework.model.UserModel;
 import ru.skypro.homework.repository.UserRepository;
+import ru.skypro.homework.service.ImageService;
 import ru.skypro.homework.service.UserService;
+import java.io.IOException;
 
-import java.util.Objects;
-import java.util.Optional;
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    private final UserRepository repository;
+    private final ImageService imageService;
+    private final UserRepository userRepository;
     private final UserMapper mapper;
-    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository repository, UserMapper mapper, PasswordEncoder passwordEncoder) {
-        this.repository = repository;
-        this.mapper = mapper;
-        this.passwordEncoder = passwordEncoder;
+    @Override
+    public User update(User user, String name) {
+        return mapper.entityToUserDto(userRepository.save(mapper.userDtoToEntity(user, getEntity(name))));
     }
 
     @Override
-    public User getCurrentUser(String username) {
-        return mapper.mapToUser(getUser(username));
+    public void delete(String username) {
+        userRepository.deleteByUsername(username);
     }
 
     @Override
-    public UserModel getUser(String username) {
-        return repository.findUserByUsername(username).orElseThrow();
+    public User get(String username) {
+        return mapper.entityToUserDto(getEntity(username));
     }
 
     @Override
-    public UserModel updateUser(UserModel authUser, User user) {
-        UserModel userModel = mapper.mapUserToUserModel(user, authUser);
-        repository.save(userModel);
-        return userModel;
+    public UserEntity getEntity(String username) {
+        return userRepository.findByUsername(username).orElseThrow(() -> new FindNoEntityException("пользователь"));
     }
 
     @Override
-    public User setUserPassword(UserModel authUser, NewPassword newPassword) {
-        authUser.setPassword(passwordEncoder.encode(newPassword.newPassword));
-        repository.save(authUser);
-        return mapper.mapToUser(authUser);
+    public void uploadImage(MultipartFile image, String username) throws IOException {
+        UserEntity userEntity = getEntity(username);
+        ImageEntity imageEntity = userEntity.getImage();
+        userEntity.setImage(imageService.saveImage(image));
+        userRepository.save(userEntity);
+        if (imageEntity != null) {
+            imageService.deleteImage(imageEntity);
+        }
     }
 
     @Override
-    public User loadUserImage(UserModel userModel, ImageModel image) {
-        image.setId(Optional.ofNullable(userModel.getImage())
-                .map(ImageModel::getId)
-                .orElse(null));
-        userModel.setImage(image);
-        //userModel.setContentType(image.getContentType());
-        repository.save(userModel);
-        return mapper.mapToUser(userModel);
-    }
-
-    @Override
-    public boolean isPasswordCorrect(UserModel authUser, String currentPassword) {
-        return passwordEncoder.matches(currentPassword, authUser.getPassword());
-    }
-
-    @Override
-    public void createUser(Register register, Role role) {
-        UserModel userModel = mapper.mapRegisterReqToUserModel(register, new UserModel());
-        userModel.setPassword(passwordEncoder.encode(register.getPassword()));
-        userModel.setRole(Objects.requireNonNullElse(role, Role.USER));
-        repository.save(userModel);
+    public UserEntity getEntityById(int id) {
+        return userRepository.findById(id).orElseThrow(() -> new FindNoEntityException("пользователь"));
     }
 }

@@ -1,14 +1,11 @@
 package ru.skypro.homework.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.skypro.homework.model.AdsModel;
-import ru.skypro.homework.model.CommentModel;
-import ru.skypro.homework.model.UserModel;
-
+import org.springframework.stereotype.Repository;
+import ru.skypro.homework.entity.CommentEntity;
 import java.util.List;
-import java.util.Optional;
 
-public interface CommentRepository extends JpaRepository<CommentModel, Long> {
-    Optional<CommentModel> findDistinctFirstByTextEqualsAndUserEqualsAndAdsEquals(String text, UserModel user, AdsModel ads);
-    List<CommentModel> findAllByAds_Id(Long ads_id);
+@Repository
+public interface CommentRepository extends JpaRepository<CommentEntity, Integer> {
+    List<CommentEntity> findAllByAd_Pk(int id);
 }

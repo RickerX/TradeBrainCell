@@ -1,119 +1,90 @@
 package ru.skypro.homework.service.impl;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import ru.skypro.homework.dto.Ads;
 import ru.skypro.homework.dto.CreateAds;
 import ru.skypro.homework.dto.FullAds;
 import ru.skypro.homework.dto.ResponseWrapper;
+import ru.skypro.homework.entity.AdsEntity;
+import ru.skypro.homework.entity.ImageEntity;
+import ru.skypro.homework.exception.FindNoEntityException;
 import ru.skypro.homework.mapper.AdsMapper;
-import ru.skypro.homework.model.AdsModel;
-import ru.skypro.homework.model.ImageModel;
-import ru.skypro.homework.model.UserModel;
 import ru.skypro.homework.repository.AdsRepository;
 import ru.skypro.homework.service.AdsService;
-
+import ru.skypro.homework.service.ImageService;
+import ru.skypro.homework.service.UserService;
+import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
-import java.util.Optional;
-import java.util.stream.Collectors;
 @Service
+@RequiredArgsConstructor
 public class AdsServiceImpl implements AdsService {
-
     private final AdsRepository adsRepository;
-    private final UserServiceImpl userService;
+    private final UserService userService;
+    private final ImageService imageService;
+    private final AdsMapper mapper;
 
-    private final AdsMapper adsMapper;
-
-    public AdsServiceImpl(AdsRepository adsRepository, UserServiceImpl userService, AdsMapper adsMapper) {
-        this.adsRepository = adsRepository;
-        this.userService = userService;
-        this.adsMapper = adsMapper;
-    }
-
-    public ResponseWrapper getAds() {
-        //List<Ads> ads = new ArrayList<>();
-        List<AdsModel> adsModels = adsRepository.findAll();
-        ResponseWrapper wrapperAds = new ResponseWrapper();
-        wrapperAds.setCount(adsModels.size());
-        wrapperAds.setResults(
-                adsModels.stream()
-                        .map(adsMapper::adsModelToAds)
-                        .collect(Collectors.toList())
-        );
-        //return AdsMapper.INSTANCE.adsModelToAds(a);
-        return wrapperAds;
+    @Override
+    public Ads add(CreateAds properties, MultipartFile image, String email) throws IOException {
+        AdsEntity ad = mapper.createAdsToEntity(properties, userService.getEntity(email));
+        ad.setImage(imageService.saveImage(image));
+        return mapper.entityToAdsDto(adsRepository.save(ad));
     }
 
     @Override
-    public Ads createAds(CreateAds properties, ImageModel image, String userName) {
-        AdsModel adsModel = adsMapper.CreateAdsToAdsModel(properties);
-        adsModel.setImage(image);
-        adsModel.setUser(userService.getUser(userName));
-        return adsMapper.adsModelToAds(adsRepository.save(adsModel));
+    public FullAds getFullAdsById(int id) {
+        return mapper.entityToFullAdsDto(getEntity(id));
     }
 
     @Override
-    public FullAds getFullAds(long id) {
-        AdsModel adsModel = adsRepository.findById(id).orElse(null);
-        return adsMapper.adsModelToFullAds(adsModel);
+    public void delete(int id) throws IOException {
+        ImageEntity image = getEntity(id).getImage();
+        adsRepository.deleteById(id);
+        imageService.deleteImage(image);
     }
 
     @Override
-    public int removeAds(long id) {
-        if (adsRepository.findById(id).isEmpty()) {
-            return 204; // не найден
-        } else {
-            adsRepository.deleteById(id);
-            return 0; // запись удалена
+    public Ads update(int id, CreateAds ads) {
+        AdsEntity entity = getEntity(id);
+        entity.setTitle(ads.getTitle());
+        entity.setDescription(ads.getDescription());
+        entity.setPrice(ads.getPrice());
+        adsRepository.save(entity);
+        return mapper.entityToAdsDto(entity);
+    }
+
+    @Override
+    public AdsEntity getEntity(int id) {
+        return adsRepository.findById(id).orElseThrow(() -> new FindNoEntityException("объявление"));
+    }
+
+    @Override
+    public void uploadImage(int id, MultipartFile image) throws IOException {
+        AdsEntity adEntity = getEntity(id);
+        ImageEntity imageEntity = adEntity.getImage();
+        adEntity.setImage(imageService.saveImage(image));
+        adsRepository.save(adEntity);
+        if (imageEntity != null) {
+            imageService.deleteImage(imageEntity);
         }
     }
 
     @Override
-    public Ads updateAds(long id, CreateAds createAds) {
-        Optional<AdsModel> adsModelOptional = adsRepository.findById(id);
-        if (adsModelOptional.isEmpty()) {
-            return null;
-        }
-        AdsModel adsModel = adsMapper.CreateAdsToAdsModel(adsModelOptional.get(), createAds);
-        adsRepository.save(adsModel);
-        return adsMapper.adsModelToAds(adsModel);
+    public ResponseWrapper getAllAds() {
+        return getWrapper(adsRepository.findAll());
     }
 
     @Override
-    public ResponseWrapper getAdsMe(String username) {
-        UserModel user = userService.getUser(username);
-        List<AdsModel> adModels = adsRepository.findAdsModelByUserId(user.getId());
-        ResponseWrapper wrapperAds = new ResponseWrapper();
-        wrapperAds.setCount(adModels.size());
-        wrapperAds.setResults(
-                adModels.stream()
-                        .map(adsMapper::adsModelToAds)
-                        .collect(Collectors.toList())
-        );
-        return wrapperAds;
-//        return adsModels.stream().map(adsMapper::adsModelToAds).collect(Collectors.toList());
+    public ResponseWrapper getAllMyAds(String username) {
+        return getWrapper(adsRepository.findAllByAuthorUsername(username));
     }
 
-    @Override
-    public AdsModel updateAdsImage(AdsModel ads, ImageModel image) {
-        image.setId(Optional.ofNullable(ads.getImage())
-                .map(ImageModel::getId)
-                .orElse(null));
-
-
-        //ads.getImage().getId());
-        ads.setImage(image);
-        return adsRepository.saveAndFlush(ads);
-    }
-
-    @Override
-    public List<Ads> findByTitleContainingIgnoreCase(String searchTitle) {
-        List<AdsModel> adModels = adsRepository.findByTitleLikeIgnoreCase("%" + searchTitle + "%");
-        return adModels.stream().map(adsMapper::adsModelToAds).collect(Collectors.toList());
-    }
-
-    @Override
-    public AdsModel getAdById(long id) {
-        return adsRepository.findById(id).orElse(null);
+    private ResponseWrapper getWrapper(List<AdsEntity> list) {
+        List<Ads> result = new LinkedList<>();
+        list.forEach((entity -> result.add(mapper.entityToAdsDto(entity))));
+        return new ResponseWrapper(result.size(), result);
     }
 }

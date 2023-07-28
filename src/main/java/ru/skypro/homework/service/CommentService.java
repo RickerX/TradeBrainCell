@@ -1,22 +1,18 @@
 package ru.skypro.homework.service;
 
 import ru.skypro.homework.dto.Comment;
-import ru.skypro.homework.dto.RequestWrapperComment;
+import ru.skypro.homework.dto.CreateComment;
 import ru.skypro.homework.dto.ResponseWrapperComments;
+import ru.skypro.homework.entity.CommentEntity;
 
 public interface CommentService {
+    ResponseWrapperComments getComments(int id);
 
-    ResponseWrapperComments getComments(RequestWrapperComment rq);
+    Comment add(int id, CreateComment comment, String name);
 
+    void delete(int commentId);
 
-    Comment addComment(RequestWrapperComment rq);
+    Comment update(int commentId, Comment newComment, String email);
 
-
-    boolean isMine(RequestWrapperComment rq);
-
-
-    Comment deleteComment(RequestWrapperComment rq);
-
-
-    Comment updateComment(RequestWrapperComment rq);
+    CommentEntity getEntity(int commentId);
 }

@@ -3,41 +3,24 @@ package ru.skypro.homework.mapper;
 import org.springframework.stereotype.Component;
 import ru.skypro.homework.dto.Register;
 import ru.skypro.homework.dto.User;
-import ru.skypro.homework.model.ImageModel;
-import ru.skypro.homework.model.UserModel;
+import ru.skypro.homework.entity.UserEntity;
 
-import java.util.Optional;
 @Component
 public class UserMapper {
-    public User mapToUser(UserModel userModel) {
-        User user = new User();
-        user.setId(userModel.getId());
-        user.setEmail(userModel.getUsername());
-        user.setFirstName(userModel.getFirstName());
-        user.setLastName(userModel.getLastName());
-        user.setPhone(userModel.getPhone());
-        user.setImage(Optional.ofNullable(userModel.getImage())
-                .map(ImageModel::getPath)
-                .orElse(null));
-        return user;
+    public User entityToUserDto(UserEntity entity) {
+        return new User(entity.getId(), entity.getUsername(), entity.getFirstName(),
+                entity.getLastName(), entity.getPhone(), entity.getImagePath());
     }
 
-    public UserModel mapUserToUserModel(User user, UserModel userModel) {
-        userModel.setId(user.getId());
-        userModel.setUsername(user.getEmail());
-        userModel.setFirstName(user.getFirstName());
-        userModel.setLastName(user.getLastName());
-        userModel.setPhone(user.getPhone());
-        return userModel;
+    public UserEntity userDtoToEntity(User user, UserEntity entity) {
+        entity.setPhone(user.getPhone());
+        entity.setFirstName(user.getFirstName());
+        entity.setLastName(user.getLastName());
+        return entity;
     }
 
-    public UserModel mapRegisterReqToUserModel(Register register, UserModel userModel) {
-        userModel.setUsername(register.getUsername());
-        userModel.setPassword(register.getPassword());
-        userModel.setFirstName(register.getFirstName());
-        userModel.setLastName(register.getLastName());
-        userModel.setPhone(register.getPhone());
-        userModel.setRole(register.getRole());
-        return userModel;
+    public UserEntity registerReqDtoToEntity(Register req) {
+        return new UserEntity(req.getPassword(), req.getUsername(), req.getFirstName(),
+                req.getLastName(), req.getPhone(), req.getRole());
     }
 }

@@ -1,2 +1,2 @@
 databaseChangeLog:
-  - include:file: liquibase/scripts/migrations.sql
+  - include:file: liquibase/scripts/migration.sql

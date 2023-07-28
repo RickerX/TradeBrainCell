@@ -1,61 +1,57 @@
 package ru.skypro.homework.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.tika.Tika;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.multipart.MultipartFile;
-import ru.skypro.homework.model.ImageModel;
+import ru.skypro.homework.entity.ImageEntity;
+import ru.skypro.homework.exception.FindNoEntityException;
 import ru.skypro.homework.repository.ImageRepository;
 import ru.skypro.homework.service.ImageService;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import static java.nio.file.StandardOpenOption.CREATE_NEW;
 
-import javax.imageio.ImageIO;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 @RequiredArgsConstructor
 @Service
 public class ImageServiceImpl implements ImageService {
-    private final ImageRepository imageRepository;
+    private final ImageRepository repository;
+    @Value("${path.to.images}")
+    private String imageDirectory;
 
     @Override
-    public ImageModel upload(MultipartFile imageFile, Float newWidth) throws IOException {
-        BufferedImage originalBufferedImage = ImageIO.read(imageFile.getInputStream());
-        //int height = originalBufferedImage.getHeight() / (originalBufferedImage.getWidth() / OPTIMIZED_IMAGE_WIDTH);
-        double trans = 1.0 / (originalBufferedImage.getWidth() / newWidth);
-        AffineTransform tr = new AffineTransform();
-        tr.scale(trans, trans);
-        AffineTransformOp op = new AffineTransformOp(tr, AffineTransformOp.TYPE_BILINEAR);
-        double w = originalBufferedImage.getWidth() * trans;
-        double h = originalBufferedImage.getHeight() * trans;
-        BufferedImage optimizedBufferedImage = new BufferedImage((int) w, (int) h, originalBufferedImage.getType());
-        op.filter(originalBufferedImage, optimizedBufferedImage);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        Tika tika = new Tika();
-        String detectedType = tika.detect(imageFile.getInputStream());
-        String fileExtension = MimeTypeUtils.parseMimeType(detectedType).getSubtype();
-        ImageIO.write(optimizedBufferedImage,fileExtension , byteArrayOutputStream);
-        byteArrayOutputStream.flush();
-        ImageModel imageModel = new ImageModel();
-        imageModel.setImage(byteArrayOutputStream.toByteArray());
-        //imageModel.setSize((long) byteArrayOutputStream.size());
-        byteArrayOutputStream.close();
-        imageModel.setMediaType(detectedType);
-        return imageModel;
+    public ImageEntity saveImage(MultipartFile image) throws IOException {
+        ImageEntity entity = repository.save(new ImageEntity());
+        Path filePath = getPath(entity);
+        Files.createDirectories(filePath.getParent());
+        try (
+                InputStream is = image.getInputStream();
+                OutputStream os = Files.newOutputStream(filePath, CREATE_NEW);
+                BufferedInputStream bis = new BufferedInputStream(is, 1024);
+                BufferedOutputStream bos = new BufferedOutputStream(os, 1024)) {
+            bis.transferTo(bos);
+        }
+        return entity;
     }
 
     @Override
-    public ImageModel save(ImageModel image) {
-        return imageRepository.saveAndFlush(image);
+    public byte[] getImage(long id) throws IOException {
+        return Files.readAllBytes(getPath(getEntity(id)));
     }
 
-    @Transactional(readOnly = true)
     @Override
-    public ImageModel read(long id) {
-        return imageRepository.findById(id)
-                .orElse(null);
+    public ImageEntity getEntity(long id) {
+        return repository.findById(id).orElseThrow(() -> new FindNoEntityException("картинка"));
+    }
+
+    @Override
+    public void deleteImage(ImageEntity image) throws IOException {
+        Files.deleteIfExists(getPath(image));
+        repository.delete(image);
+    }
+
+    private Path getPath(ImageEntity image) {
+        return Path.of(imageDirectory, String.valueOf(image.getId()));
     }
 }

@@ -1,39 +1,28 @@
 package ru.skypro.homework.service;
 
+import org.springframework.web.multipart.MultipartFile;
 import ru.skypro.homework.dto.Ads;
 import ru.skypro.homework.dto.CreateAds;
 import ru.skypro.homework.dto.FullAds;
 import ru.skypro.homework.dto.ResponseWrapper;
-import ru.skypro.homework.model.AdsModel;
-import ru.skypro.homework.model.ImageModel;
+import ru.skypro.homework.entity.AdsEntity;
 
-import java.util.List;
+import java.io.IOException;
 
 public interface AdsService {
+    Ads add(CreateAds properties, MultipartFile image, String email) throws IOException;
 
-ResponseWrapper getAds();
+    FullAds getFullAdsById(int id);
 
+    ResponseWrapper getAllAds();
 
-    Ads createAds(CreateAds properties, ImageModel image, String userName);
+    ResponseWrapper getAllMyAds(String name);
 
+    void delete(int id) throws IOException;
 
-    FullAds getFullAds(long id);
+    Ads update(int id, CreateAds ads);
 
+    AdsEntity getEntity(int id);
 
-    int removeAds(long id);
-
-
-    Ads updateAds(long id, CreateAds createAds);
-
-
-    ResponseWrapper getAdsMe(String username);
-
-
-    AdsModel updateAdsImage(AdsModel ads, ImageModel image);
-
-
-    List<Ads> findByTitleContainingIgnoreCase(String searchTitle);
-
-
-    AdsModel getAdById(long id);
+    void uploadImage(int id, MultipartFile image) throws IOException;
 }

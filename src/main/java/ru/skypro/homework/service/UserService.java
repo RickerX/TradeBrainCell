@@ -1,30 +1,20 @@
 package ru.skypro.homework.service;
 
-import ru.skypro.homework.dto.NewPassword;
-import ru.skypro.homework.dto.Register;
-import ru.skypro.homework.dto.Role;
+import org.springframework.web.multipart.MultipartFile;
 import ru.skypro.homework.dto.User;
-import ru.skypro.homework.model.ImageModel;
-import ru.skypro.homework.model.UserModel;
+import ru.skypro.homework.entity.UserEntity;
+import java.io.IOException;
 
 public interface UserService {
-    User getCurrentUser(String username);
+    User update(User user, String name);
 
+    void delete(String name);
 
-    UserModel updateUser(UserModel authUser, User user);
+    User get(String name);
 
+    UserEntity getEntity(String name);
 
-    UserModel getUser(String username);
+    void uploadImage(MultipartFile image, String name) throws IOException;
 
-
-    User setUserPassword(UserModel authUser, NewPassword newPassword);
-
-
-    User loadUserImage(UserModel authUser, ImageModel image);
-
-
-    boolean isPasswordCorrect(UserModel authUser, String currentPassword);
-
-
-    void createUser(Register registerReqDto, Role role);
+    UserEntity getEntityById(int id);
 }
