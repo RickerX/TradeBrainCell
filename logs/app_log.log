@@ -1,0 +1,191 @@
+2023-07-29 00:45:21.974  INFO 2440 --- [main] ru.skypro.homework.HomeworkApplication   : Starting HomeworkApplication using Java 17.0.6 on LAPTOP-FF1RGRRN with PID 2440 (C:\Users\kozya\IdeaProjects\TradeBrainCell\target\classes started by kozya in C:\Users\kozya\IdeaProjects\TradeBrainCell)
+2023-07-29 00:45:21.976  INFO 2440 --- [main] ru.skypro.homework.HomeworkApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-07-29 00:45:22.694  INFO 2440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-29 00:45:22.771  INFO 2440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 4 JPA repository interfaces.
+2023-07-29 00:45:23.269  INFO 2440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-29 00:45:23.279  INFO 2440 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-29 00:45:23.279  INFO 2440 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-07-29 00:45:23.378  INFO 2440 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-29 00:45:23.379  INFO 2440 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1349 ms
+2023-07-29 00:45:23.616  INFO 2440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-29 00:45:23.760  INFO 2440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-29 00:45:23.998  INFO 2440 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2023-07-29 00:45:24.137  INFO 2440 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-07-29 00:45:24.174  INFO 2440 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-07-29 00:45:24.275  INFO 2440 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-29 00:45:24.323  INFO 2440 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-07-29 00:45:24.452  INFO 2440 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-29 00:45:24.543  INFO 2440 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2023-07-29 00:45:25.053  INFO 2440 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-29 00:45:25.062  INFO 2440 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 00:45:26.235  INFO 2440 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6fb2b972, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5fa3df, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b8ce72, org.springframework.security.web.header.HeaderWriterFilter@19877453, org.springframework.web.filter.CorsFilter@44f88149, org.springframework.security.web.authentication.logout.LogoutFilter@4c51fc9a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2c28654e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4257163f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@40e7aea9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b1a3125, org.springframework.security.web.session.SessionManagementFilter@25134e01, org.springframework.security.web.access.ExceptionTranslationFilter@4a937d43, org.springframework.security.web.access.intercept.AuthorizationFilter@10c1682b]
+2023-07-29 00:45:26.487  INFO 2440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-29 00:45:26.498  INFO 2440 --- [main] ru.skypro.homework.HomeworkApplication   : Started HomeworkApplication in 4.908 seconds (JVM running for 5.511)
+2023-07-29 00:47:32.598  INFO 2440 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-29 00:47:32.599  INFO 2440 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-29 00:47:32.600  INFO 2440 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-07-29 01:09:42.087  INFO 2440 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 01:09:42.089  INFO 2440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-29 01:09:42.102  INFO 2440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-29 01:33:12.392  INFO 7240 --- [main] ru.skypro.homework.HomeworkApplication   : Starting HomeworkApplication using Java 17.0.6 on LAPTOP-FF1RGRRN with PID 7240 (C:\Users\kozya\IdeaProjects\TradeBrainCell\target\classes started by kozya in C:\Users\kozya\IdeaProjects\TradeBrainCell)
+2023-07-29 01:33:12.395  INFO 7240 --- [main] ru.skypro.homework.HomeworkApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-07-29 01:33:13.183  INFO 7240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-29 01:33:13.260  INFO 7240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 4 JPA repository interfaces.
+2023-07-29 01:33:13.776  INFO 7240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-29 01:33:13.784  INFO 7240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-29 01:33:13.785  INFO 7240 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-07-29 01:33:13.888  INFO 7240 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-29 01:33:13.889  INFO 7240 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1432 ms
+2023-07-29 01:33:14.131  INFO 7240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-29 01:33:14.271  INFO 7240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-29 01:33:14.507  INFO 7240 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2023-07-29 01:33:14.652  INFO 7240 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-07-29 01:33:14.688  INFO 7240 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-07-29 01:33:14.799  INFO 7240 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-29 01:33:14.849  INFO 7240 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-07-29 01:33:14.995  INFO 7240 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-29 01:33:15.093  INFO 7240 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2023-07-29 01:33:15.597  INFO 7240 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-29 01:33:15.605  INFO 7240 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 01:33:16.769  INFO 7240 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@ae85aad, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@737ae41a, org.springframework.security.web.context.SecurityContextPersistenceFilter@55c78556, org.springframework.security.web.header.HeaderWriterFilter@43e9a8a2, org.springframework.web.filter.CorsFilter@7a05cdc8, org.springframework.security.web.authentication.logout.LogoutFilter@514c6ca0, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@ccea4be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12d28106, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a3c1b56, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f3fafca, org.springframework.security.web.session.SessionManagementFilter@158cb50a, org.springframework.security.web.access.ExceptionTranslationFilter@30f54522, org.springframework.security.web.access.intercept.AuthorizationFilter@1104cf3a]
+2023-07-29 01:33:17.036  INFO 7240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-29 01:33:17.046  INFO 7240 --- [main] ru.skypro.homework.HomeworkApplication   : Started HomeworkApplication in 5.036 seconds (JVM running for 5.713)
+2023-07-29 01:33:38.825  INFO 7240 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 01:33:38.828  INFO 7240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-29 01:33:38.832  INFO 7240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-29 01:36:46.709  INFO 2552 --- [main] ru.skypro.homework.HomeworkApplication   : Starting HomeworkApplication using Java 17.0.6 on LAPTOP-FF1RGRRN with PID 2552 (C:\Users\kozya\IdeaProjects\TradeBrainCell\target\classes started by kozya in C:\Users\kozya\IdeaProjects\TradeBrainCell)
+2023-07-29 01:36:46.712  INFO 2552 --- [main] ru.skypro.homework.HomeworkApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-07-29 01:36:47.433  INFO 2552 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-29 01:36:47.503  INFO 2552 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 4 JPA repository interfaces.
+2023-07-29 01:36:48.001  INFO 2552 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-29 01:36:48.010  INFO 2552 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-29 01:36:48.010  INFO 2552 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-07-29 01:36:48.113  INFO 2552 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-29 01:36:48.114  INFO 2552 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1345 ms
+2023-07-29 01:36:48.336  INFO 2552 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-29 01:36:48.472  INFO 2552 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-29 01:36:48.686  INFO 2552 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2023-07-29 01:36:48.815  INFO 2552 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-07-29 01:36:48.856  INFO 2552 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-07-29 01:36:48.971  INFO 2552 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-29 01:36:49.021  INFO 2552 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-07-29 01:36:49.175  INFO 2552 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-29 01:36:49.266  INFO 2552 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2023-07-29 01:36:49.770  INFO 2552 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-29 01:36:49.778  INFO 2552 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 01:36:50.984  INFO 2552 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1104cf3a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@85fd4b, org.springframework.security.web.context.SecurityContextPersistenceFilter@55d98bbb, org.springframework.security.web.header.HeaderWriterFilter@1e284d90, org.springframework.web.filter.CorsFilter@6715a6da, org.springframework.security.web.authentication.logout.LogoutFilter@3a388769, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@28d728f1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30f54522, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5af47414, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1eb207c3, org.springframework.security.web.session.SessionManagementFilter@2cbae0f1, org.springframework.security.web.access.ExceptionTranslationFilter@356cb230, org.springframework.security.web.access.intercept.AuthorizationFilter@37e28b20]
+2023-07-29 01:36:51.247  INFO 2552 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-29 01:36:51.258  INFO 2552 --- [main] ru.skypro.homework.HomeworkApplication   : Started HomeworkApplication in 4.92 seconds (JVM running for 5.533)
+2023-07-29 01:40:27.039  INFO 2552 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 01:40:27.041  INFO 2552 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-29 01:40:27.052  INFO 2552 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-29 01:40:38.238  INFO 39644 --- [main] ru.skypro.homework.HomeworkApplication   : Starting HomeworkApplication using Java 17.0.6 on LAPTOP-FF1RGRRN with PID 39644 (C:\Users\kozya\IdeaProjects\TradeBrainCell\target\classes started by kozya in C:\Users\kozya\IdeaProjects\TradeBrainCell)
+2023-07-29 01:40:38.240  INFO 39644 --- [main] ru.skypro.homework.HomeworkApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-07-29 01:40:38.964  INFO 39644 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-29 01:40:39.041  INFO 39644 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 4 JPA repository interfaces.
+2023-07-29 01:40:39.622  INFO 39644 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-29 01:40:39.632  INFO 39644 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-29 01:40:39.633  INFO 39644 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-07-29 01:40:39.753  INFO 39644 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-29 01:40:39.754  INFO 39644 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1465 ms
+2023-07-29 01:40:40.052  INFO 39644 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-29 01:40:40.234  INFO 39644 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-29 01:40:40.492  INFO 39644 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2023-07-29 01:40:40.655  INFO 39644 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-07-29 01:40:40.697  INFO 39644 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-07-29 01:40:40.831  INFO 39644 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-29 01:40:40.903  INFO 39644 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-07-29 01:40:41.156  INFO 39644 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-29 01:40:41.248  INFO 39644 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2023-07-29 01:40:41.915  INFO 39644 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-29 01:40:41.926  INFO 39644 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 01:40:43.383  INFO 39644 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@718e700c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b5e45bc, org.springframework.security.web.context.SecurityContextPersistenceFilter@48e3017a, org.springframework.security.web.header.HeaderWriterFilter@72155315, org.springframework.web.filter.CorsFilter@10c1682b, org.springframework.security.web.authentication.logout.LogoutFilter@63ff861e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@28705150, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10264cb0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@19877453, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cf97875, org.springframework.security.web.session.SessionManagementFilter@7acf07b2, org.springframework.security.web.access.ExceptionTranslationFilter@8b71052, org.springframework.security.web.access.intercept.AuthorizationFilter@2ef812b]
+2023-07-29 01:40:43.787  INFO 39644 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-29 01:40:43.799  INFO 39644 --- [main] ru.skypro.homework.HomeworkApplication   : Started HomeworkApplication in 6.003 seconds (JVM running for 6.829)
+2023-07-29 01:41:05.830  INFO 39644 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 01:41:05.832  INFO 39644 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-29 01:41:05.837  INFO 39644 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-29 02:04:13.190  INFO 25936 --- [main] ru.skypro.homework.HomeworkApplication   : Starting HomeworkApplication using Java 17.0.6 on LAPTOP-FF1RGRRN with PID 25936 (C:\Users\kozya\IdeaProjects\TradeBrainCell\target\classes started by kozya in C:\Users\kozya\IdeaProjects\TradeBrainCell)
+2023-07-29 02:04:13.195  INFO 25936 --- [main] ru.skypro.homework.HomeworkApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-07-29 02:04:14.000  INFO 25936 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-29 02:04:14.080  INFO 25936 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 4 JPA repository interfaces.
+2023-07-29 02:04:14.621  INFO 25936 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-29 02:04:14.629  INFO 25936 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-29 02:04:14.630  INFO 25936 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-07-29 02:04:14.735  INFO 25936 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-29 02:04:14.735  INFO 25936 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1493 ms
+2023-07-29 02:04:15.003  INFO 25936 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-29 02:04:15.171  INFO 25936 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-29 02:04:15.467  INFO 25936 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2023-07-29 02:04:15.619  INFO 25936 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-07-29 02:04:15.662  INFO 25936 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-07-29 02:04:15.777  INFO 25936 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-29 02:04:15.845  INFO 25936 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-07-29 02:04:16.011  INFO 25936 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-29 02:04:16.122  INFO 25936 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2023-07-29 02:04:16.722  INFO 25936 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-29 02:04:16.731  INFO 25936 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 02:04:17.947  INFO 25936 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1a865ebf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b3d3e57, org.springframework.security.web.context.SecurityContextPersistenceFilter@6d7d0946, org.springframework.security.web.header.HeaderWriterFilter@41ae9f11, org.springframework.web.filter.CorsFilter@15251cc2, org.springframework.security.web.authentication.logout.LogoutFilter@2b8b5d9e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4446a191, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1dc28c66, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f97e963, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7bdaf563, org.springframework.security.web.session.SessionManagementFilter@3f2feab7, org.springframework.security.web.access.ExceptionTranslationFilter@723081a2, org.springframework.security.web.access.intercept.AuthorizationFilter@25134e01]
+2023-07-29 02:04:18.238  INFO 25936 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-29 02:04:18.250  INFO 25936 --- [main] ru.skypro.homework.HomeworkApplication   : Started HomeworkApplication in 5.559 seconds (JVM running for 6.38)
+2023-07-29 02:04:34.698  INFO 25936 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-29 02:04:34.698  INFO 25936 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-29 02:04:34.701  INFO 25936 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-07-29 02:09:33.038  INFO 25936 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 02:09:33.041  INFO 25936 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-29 02:09:33.047  INFO 25936 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-29 02:09:36.247  INFO 16768 --- [main] ru.skypro.homework.HomeworkApplication   : Starting HomeworkApplication using Java 17.0.6 on LAPTOP-FF1RGRRN with PID 16768 (C:\Users\kozya\IdeaProjects\TradeBrainCell\target\classes started by kozya in C:\Users\kozya\IdeaProjects\TradeBrainCell)
+2023-07-29 02:09:36.251  INFO 16768 --- [main] ru.skypro.homework.HomeworkApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-07-29 02:09:36.910  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-29 02:09:36.978  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 4 JPA repository interfaces.
+2023-07-29 02:09:37.457  INFO 16768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-29 02:09:37.464  INFO 16768 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-29 02:09:37.464  INFO 16768 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-07-29 02:09:37.566  INFO 16768 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-29 02:09:37.566  INFO 16768 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1264 ms
+2023-07-29 02:09:37.799  INFO 16768 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-29 02:09:37.932  INFO 16768 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-29 02:09:38.154  INFO 16768 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2023-07-29 02:09:38.292  INFO 16768 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-07-29 02:09:38.327  INFO 16768 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-07-29 02:09:38.431  INFO 16768 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-29 02:09:38.483  INFO 16768 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-07-29 02:09:38.634  INFO 16768 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-29 02:09:38.728  INFO 16768 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2023-07-29 02:09:39.268  INFO 16768 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-29 02:09:39.276  INFO 16768 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 02:09:40.454  INFO 16768 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c3400df, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7be9e9fc, org.springframework.security.web.context.SecurityContextPersistenceFilter@3af6d7a7, org.springframework.security.web.header.HeaderWriterFilter@30f54522, org.springframework.web.filter.CorsFilter@7e864fa4, org.springframework.security.web.authentication.logout.LogoutFilter@4446a191, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2cf97875, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b8b5d9e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9e092b5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@452d6fd, org.springframework.security.web.session.SessionManagementFilter@19877453, org.springframework.security.web.access.ExceptionTranslationFilter@55d98bbb, org.springframework.security.web.access.intercept.AuthorizationFilter@53813f01]
+2023-07-29 02:09:40.730  INFO 16768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-29 02:09:40.742  INFO 16768 --- [main] ru.skypro.homework.HomeworkApplication   : Started HomeworkApplication in 4.867 seconds (JVM running for 5.58)
+2023-07-29 02:09:51.131  INFO 16768 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 02:09:51.133  INFO 16768 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-29 02:09:51.137  INFO 16768 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-29 10:19:02.078  INFO 5912 --- [main] ru.skypro.homework.HomeworkApplication   : Starting HomeworkApplication using Java 17.0.6 on LAPTOP-FF1RGRRN with PID 5912 (C:\Users\kozya\IdeaProjects\TradeBrainCell\target\classes started by kozya in C:\Users\kozya\IdeaProjects\TradeBrainCell)
+2023-07-29 10:19:02.080  INFO 5912 --- [main] ru.skypro.homework.HomeworkApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-07-29 10:19:02.848  INFO 5912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-29 10:19:02.929  INFO 5912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 4 JPA repository interfaces.
+2023-07-29 10:19:03.477  INFO 5912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-29 10:19:03.486  INFO 5912 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-29 10:19:03.487  INFO 5912 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-07-29 10:19:03.595  INFO 5912 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-29 10:19:03.595  INFO 5912 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1463 ms
+2023-07-29 10:19:03.894  INFO 5912 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-29 10:19:04.064  INFO 5912 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-29 10:19:04.350  INFO 5912 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2023-07-29 10:19:04.512  INFO 5912 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-07-29 10:19:04.551  INFO 5912 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-07-29 10:19:04.685  INFO 5912 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-29 10:19:04.748  INFO 5912 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-07-29 10:19:04.963  INFO 5912 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-29 10:19:05.094  INFO 5912 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2023-07-29 10:19:05.687  INFO 5912 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-29 10:19:05.695  INFO 5912 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 10:19:06.942  INFO 5912 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@28b286c0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@718e700c, org.springframework.security.web.context.SecurityContextPersistenceFilter@54fbaa65, org.springframework.security.web.header.HeaderWriterFilter@27a23d87, org.springframework.web.filter.CorsFilter@5b5e45bc, org.springframework.security.web.authentication.logout.LogoutFilter@40e7aea9, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@425376cc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a937d43, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10264cb0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10c1682b, org.springframework.security.web.session.SessionManagementFilter@74ed1d35, org.springframework.security.web.access.ExceptionTranslationFilter@6e161cea, org.springframework.security.web.access.intercept.AuthorizationFilter@4446a191]
+2023-07-29 10:19:07.206  INFO 5912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-29 10:19:07.218  INFO 5912 --- [main] ru.skypro.homework.HomeworkApplication   : Started HomeworkApplication in 5.548 seconds (JVM running for 6.491)
+2023-07-29 10:29:23.088  INFO 5912 --- [http-nio-8080-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-29 10:29:23.088  INFO 5912 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-29 10:29:23.091  INFO 5912 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-07-29 10:50:56.025  INFO 5912 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 10:50:56.028  INFO 5912 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-29 10:50:56.038  INFO 5912 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

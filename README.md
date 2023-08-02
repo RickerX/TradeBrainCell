@@ -36,5 +36,3 @@ TradeBrainCell - это проект торговой площадки.На не
 ##### ***Разработчики*** 
 Оксана - kozyarik82
 <br/>Роман - RickerX
-<br/>Алиса - asilaheyy
-<br/> Екатерина - olensis
